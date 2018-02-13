@@ -75,17 +75,31 @@ public:
         if(obj!=NULL) delete[]obj;
     }
 };
-class View:public Point,public Figura
+class View
 {
+    Figura* z;
 public:
-    View():Point(),Figura()
+    View()
     {
-        CreateFigura(10, 5);
-        CreateFigura(8, 3);
-        ShowFigura();
+        
+        for (int i=0;i<2;++i)
+        {
+        z[i].CreateFigura(arc4random()%100,arc4random()%300);
+        }
+        
+    }
+    void ShowAgr(Figura* temp)
+    {
+            temp->CreateFigura(arc4random()%100,arc4random()%300);
+    }
+    void ShowAgr2(Figura* temp1)
+    {
+            temp1->CreateFigura(arc4random()%100,arc4random()%300);
     }
     
-
+  ~View()
+    {}
+    
 };
 //Добавить к программе класс, который будет содержать в себе несколько объектов класса фигура, создавая тем самым композицию.
 
